@@ -1,6 +1,6 @@
 ---
 title: 'Learning Lab 1 Case Study'
-author: ""
+author: "Meina Zhu"
 date: "`r format(Sys.Date(),'%B %e, %Y')`"
 output:
   html_document:
@@ -12,7 +12,7 @@ output:
 editor_options:
   markdown:
     wrap: 72
-bibliography: lit/references.bib
+#bibliography: lit/references.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -101,6 +101,7 @@ dashes after the chunk with your observations.
 
 ```{r}
 
+glimpse(d)
 ```
 
 *Observations*:
@@ -172,6 +173,8 @@ in the larger data. Do that in the chunk below:
 [Your Turn]{style="color: green;"} ⤵
 
 ```{r}
+data_train
+d
 
 ```
 
@@ -274,6 +277,7 @@ Type `final_fit` below; this is the final, fitted model---one that can
 be interpreted further in the next step!
 
 ```{r}
+final_fit
 ```
 
 You may see a message/warning above or when you examine `final_fit`; you

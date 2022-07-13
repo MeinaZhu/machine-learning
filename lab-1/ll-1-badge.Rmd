@@ -1,6 +1,6 @@
 ---
 title: 'Machine Learning - Learning Lab 1 Independent Practice'
-author: ""
+author: "Meina Zhu"
 date: "`r format(Sys.Date(),'%B %e, %Y')`"
 output: html_document
 ---
@@ -25,25 +25,33 @@ Part A:
 
 1.  How good was the machine learning model we developed in the guiding practice? Would you be comfortable using it to code more conversations? What if you read about someone using such a model as a reviewer of research? Please add your thoughts and reflections following the bullet point below.
 
--   
+-   It was very good. It is around 90% accurate.
+
+-   I would love to use it to code more conversations
+
+-   I think it will be great to see someone who use the model.
 
 2.  How might the model be improved? Share any ideas you have at this time below:
 
--   
+-   I do not have many ideas so far as I am still a beginner. If I come up with new ideas, I will share it with you.
 
 Part B: Use the institutional library (e.g. [NCSU Library](https://www.lib.ncsu.edu/#articles)), [Google Scholar](https://scholar.google.com/) or search engine to locate a research article, presentation, or resource that applies machine learning to an educational context aligned with your research interests. More specifically, **locate a machine learning study that involve making predictions**.
 
 1.  Provide an APA citation for your selected study.
 
-    -   
+    -   Lu, O. H., Huang, A. Y., Huang, J. C., Lin, A. J., Ogata, H., & Yang, S. J. (2018). Applying learning analytics for the early prediction of Students' academic performance in blended learning. *Journal of Educational Technology & Society*, *21*(2), 220-232.
 
 2.  What research questions were the authors of this study trying to address and why did they consider these questions important?
 
-    -   
+    -   RQ1. How early can we predict students\' final academic performance?
+
+        RQ2. Which are the most critical factors that affect students\' final academic performance in blended learning?
+
+        RQ3. Which type of data set (blended vs. online vs. traditional) is more effective for predicting students\' final academic performance in blended learning?
 
 3.  What were the results of these analyses?
 
-    -   
+    -   The experimental results show that students\' final academic performance could be predicted when only one-third of the semester had elapsed. In addition, they identified seven critical factors that affect students\' academic performance, consisting of four online factors and three traditional factors. The results showed that the blended data set combining online and traditional critical factors had the highest predictive performance.
 
 ### Part II: Data Product
 
@@ -68,15 +76,15 @@ final_fit$.predictions[[1]] %>%
     conf_mat(.pred_class, code)
 ```
 
-Please interpret the above confusion matrix using [these guidelines](https://towardsdatascience.com/understanding-confusion-matrix-a9ad42dcfd62) in terms of the true positive, true negative, false positive, and false negative rates. After each of the following (i.e., "True positive"), add both the *number* and percentage of observations. For instance, if there were 100 true positives out of a total of 400 data points, please write: 100 (25%).
+Please interpret the above confusion matrix using [these guidelines](https://towardsdatascience.com/understanding-confusion-matrix-a9ad42dcfd62) in terms of the true positive, true negative, false positive, and false negative rates. After each of the following (i.e., "True positive"), add both the *number* and percentage of observations. For instance, if there were 100 true positives out of a total of 400 data points, please write: 100 (25%). 957
 
-**True positive**:
+**True positive**: 27%
 
-**True negative**:
+**True negative**: 4%
 
-**False positive**:
+**False positive**: 6%
 
-**False negative**:
+**False negative**: 43%
 
 You can read more about interpreting these [here](https://bradleyboehmke.github.io/HOML/process.html#classification-models) in terms of the specificity, sensitivity, precision, and recall, four statistics based on the information in the confusion matrix.
 
