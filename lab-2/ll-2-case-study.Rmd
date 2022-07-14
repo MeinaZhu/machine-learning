@@ -1,6 +1,6 @@
 ---
 title: 'Learning Lab 2 Case Study: Feature Engineering'
-author: ""
+author: "Meina Zhu"
 date: "`r format(Sys.Date(),'%B %e, %Y')`"
 output:
   html_document:
@@ -12,7 +12,7 @@ output:
 editor_options:
   markdown:
     wrap: 72
-bibliography: lit/references.bib
+# bibliography: lit/references.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -164,6 +164,8 @@ function; try that out below (asking for help or searching the Internet
 for help as needed!).
 
 ```{r, eval = FALSE}
+#view(d)
+view (gb)
 
 ```
 
@@ -187,7 +189,7 @@ how might we create them?
 
 Add a few ideas below before proceeding:
 
--   
+-   item_position, grade_category; points_earned
 
 -   
 
@@ -212,7 +214,7 @@ read more about mutate [here](https://r4ds.had.co.nz/transform.html)
 
 ```{r, warning = FALSE}
 gb <- gb %>% 
-    mutate()
+    mutate(percent_earned=points_earned/points_possible)
 ```
 
 Finally, let's create three features from the gradebook data:
@@ -250,7 +252,7 @@ Let's talk a look at the joined data to make sure everything is looking
 as we intend it to. Inspect the data using the code chunk below:
 
 ```{r}
-
+d
 ```
 
 ## Step 1. Split data
@@ -289,7 +291,9 @@ folds from 10 to 20 by changing the value of v; 10 is simply the
 default. For help, run `?vfold_cv` to get a hint.
 
 ```{r}
-kfcv <- vfold_cv(data_train) # this differentiates this from what we did before
+
+
+kfcv <- vfold_cv(data_train, v=20) # this differentiates this from what we did before
 # before, we simple used data_train to fit our model
 kfcv
 ```
@@ -390,7 +394,7 @@ should generally not be used to select between competing model
 specifications.
 
 ```{r}
-fitted_model %>% 
+fitted_model_resamples %>% 
     unnest(.metrics) %>% 
     filter(.metric == "rmse") # we also get another metric, the RSQ; we focus just on RMSE for nwo
 ```

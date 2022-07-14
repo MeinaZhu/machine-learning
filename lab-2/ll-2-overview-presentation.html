@@ -4,8 +4,8 @@
     <title>Machine Learning Learning Lab 2: Feature Engineering</title>
     <meta charset="utf-8" />
     <meta name="author" content="Dr. Joshua Rosenberg" />
-    <meta name="date" content="2022-07-12" />
-    <script src="libs/header-attrs-2.14/header-attrs.js"></script>
+    <meta name="date" content="2022-07-13" />
+    <script src="libs/header-attrs-2.13/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
     <script src="libs/panelset-0.2.6/panelset.js"></script>
@@ -38,7 +38,7 @@ class: clear, title-slide, inverse, center, top, middle
 # Machine Learning Learning Lab 2: Feature Engineering
 ----
 ### **Dr. Joshua Rosenberg**
-### July 12, 2022
+### July 13, 2022
 
 ---
 
@@ -143,7 +143,7 @@ Here's a time stamp:
 
 
 ```
-## [1] "2022-07-12 09:27:51 EDT"
+## [1] "2022-07-13 09:07:42 EDT"
 ```
 
 **How could this variable be used as a predictor variable?**
@@ -162,9 +162,7 @@ Here's a time stamp:
 
 .pull-right[
 
-&lt;img src="img/joro-cycle.jpeg" width="75%" /&gt;
-
-]
+&lt;img src="img/joro-pointing.jpeg" width="75%" /&gt;
 
 ---
 
@@ -275,18 +273,18 @@ Say we have a data set, `d`, with 100 observations (rows or data points) with _k
 
 ```
 ## # A tibble: 100 × 3
-##       id  var_a  var_b
-##    &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt;
-##  1     1 0.375  0.0263
-##  2     2 0.156  0.267 
-##  3     3 0.204  0.172 
-##  4     4 0.104  0.238 
-##  5     5 0.0806 0.760 
-##  6     6 0.539  0.426 
-##  7     7 0.701  0.985 
-##  8     8 0.237  0.406 
-##  9     9 0.216  0.159 
-## 10    10 0.865  0.0728
+##       id var_a  var_b
+##    &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;
+##  1     1 0.299 0.752 
+##  2     2 0.225 0.594 
+##  3     3 0.367 0.554 
+##  4     4 0.880 0.985 
+##  5     5 0.898 0.0769
+##  6     6 0.595 0.542 
+##  7     7 0.285 0.309 
+##  8     8 0.123 0.779 
+##  9     9 0.927 0.939 
+## 10    10 0.211 0.416 
 ## # … with 90 more rows
 ```
 
@@ -299,20 +297,20 @@ Say we have a data set, `d`, with 100 observations (rows or data points) with _k
 
 ```
 ## # A tibble: 3 × 3
-##      id var_a  var_b
-##   &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;
-## 1     1 0.375 0.0263
-## 2     2 0.156 0.267 
-## 3     3 0.204 0.172
+##      id var_a var_b
+##   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     1 0.299 0.752
+## 2     2 0.225 0.594
+## 3     3 0.367 0.554
 ```
 
 ```
 ## # A tibble: 3 × 3
-##      id var_a var_b
-##   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1    91 0.538 0.226
-## 2    92 0.839 0.862
-## 3    93 0.396 0.295
+##      id var_a  var_b
+##   &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;
+## 1    91 0.970 0.887 
+## 2    92 0.994 0.398 
+## 3    93 0.272 0.0262
 ```
 
 ---
@@ -322,20 +320,20 @@ Say we have a data set, `d`, with 100 observations (rows or data points) with _k
 
 ```
 ## # A tibble: 3 × 3
-##      id var_a  var_b
-##   &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;
-## 1     1 0.375 0.0263
-## 2     2 0.156 0.267 
-## 3     3 0.204 0.172
+##      id var_a var_b
+##   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     1 0.299 0.752
+## 2     2 0.225 0.594
+## 3     3 0.367 0.554
 ```
 
 ```
 ## # A tibble: 3 × 3
-##      id var_a var_b
-##   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1    81 0.491 0.455
-## 2    82 0.299 0.601
-## 3    83 0.818 0.702
+##      id  var_a  var_b
+##   &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+## 1    81 0.992  0.686 
+## 2    82 0.609  0.272 
+## 3    83 0.0983 0.0569
 ```
 
 ---
@@ -345,20 +343,20 @@ Say we have a data set, `d`, with 100 observations (rows or data points) with _k
 
 ```
 ## # A tibble: 3 × 3
-##      id var_a  var_b
-##   &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;
-## 1     1 0.375 0.0263
-## 2     2 0.156 0.267 
-## 3     3 0.204 0.172
+##      id var_a var_b
+##   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     1 0.299 0.752
+## 2     2 0.225 0.594
+## 3     3 0.367 0.554
 ```
 
 ```
 ## # A tibble: 3 × 3
-##      id var_a  var_b
-##   &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;
-## 1    71 0.441 0.0448
-## 2    72 0.929 0.266 
-## 3    73 0.402 0.381
+##      id var_a var_b
+##   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1    71 0.200 0.292
+## 2    72 0.874 0.812
+## 3    73 0.123 0.671
 ```
 
 ... through the tenth resampling, after which the fit measures are simply summed

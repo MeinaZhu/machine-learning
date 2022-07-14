@@ -1,6 +1,6 @@
 ---
 title: 'Machine Learning - Learning Lab 2 Badge'
-author: ""
+author: "Meina Zhu"
 date: "`r format(Sys.Date(),'%B %e, %Y')`"
 output: html_document
 ---
@@ -23,15 +23,15 @@ Part A:
 
 1.  Like we considered after LL1, how good was the machine learning model we developed in the case study? Stepping back, how successful is this as a predictive model of students' success in the class using data collected through roughly the first one month of the class? How might this model be used in practice?
 
--   
+-   It was good.
 
 3.  Would you be comfortable using this? What if you read about someone using such a model as a reviewer of research. Please add your thoughts and reflections following the bullet point below.
 
--   
+-   Yes. I am. It has pretty good prediction.
 
 3.  How might the model be improved? Share any ideas you have at this time below:
 
--   
+-   I am not sure whether the accuracy could be improved further.
 
 Part B: Again, use the institutional library (e.g. [NCSU Library](https://www.lib.ncsu.edu/#articles)), [Google Scholar](https://scholar.google.com/) or search engine to locate a research article, presentation, or resource that applies machine learning to an educational context aligned with your research interests. More specifically, **locate a machine learning study that involve making predictions -- and, ideally, one that involved in some way engineering features from data**.
 
@@ -77,6 +77,7 @@ my_rec <- recipe(passing_grade ~ ., data = d) %>%
     step_normalize(all_numeric_predictors()) %>% # standardizes numeric variables
     step_nzv(all_predictors()) %>% # remove predictors with a "near-zero variance"
     step_novel(all_nominal_predictors()) %>% # add a musing label for factors
+    step_naomit(all_predictors()) %>% # remove all missing values mz
     step_dummy(all_nominal_predictors()) %>%  # dummy code all factor variables
     step_impute_knn(all_predictors()) # impute missing data for all predictor variables
 ```

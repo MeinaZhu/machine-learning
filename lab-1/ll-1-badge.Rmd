@@ -43,15 +43,15 @@ Part B: Use the institutional library (e.g. [NCSU Library](https://www.lib.ncsu.
 
 2.  What research questions were the authors of this study trying to address and why did they consider these questions important?
 
-    -   RQ1. How early can we predict students\' final academic performance?
+    -   RQ1. How early can we predict students' final academic performance?
 
-        RQ2. Which are the most critical factors that affect students\' final academic performance in blended learning?
+        RQ2. Which are the most critical factors that affect students' final academic performance in blended learning?
 
-        RQ3. Which type of data set (blended vs. online vs. traditional) is more effective for predicting students\' final academic performance in blended learning?
+        RQ3. Which type of data set (blended vs. online vs. traditional) is more effective for predicting students' final academic performance in blended learning?
 
 3.  What were the results of these analyses?
 
-    -   The experimental results show that students\' final academic performance could be predicted when only one-third of the semester had elapsed. In addition, they identified seven critical factors that affect students\' academic performance, consisting of four online factors and three traditional factors. The results showed that the blended data set combining online and traditional critical factors had the highest predictive performance.
+    -   The experimental results show that students' final academic performance could be predicted when only one-third of the semester had elapsed. In addition, they identified seven critical factors that affect students' academic performance, consisting of four online factors and three traditional factors. The results showed that the blended data set combining online and traditional critical factors had the highest predictive performance.
 
 ### Part II: Data Product
 

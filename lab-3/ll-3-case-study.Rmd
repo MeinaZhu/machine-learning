@@ -1,6 +1,6 @@
 ---
 title: 'Learning Lab 3 Case Study'
-author: ""
+author: "Meina Zhu"
 date: "`r format(Sys.Date(),'%B %e, %Y')`"
 output:
   html_document:
@@ -12,7 +12,7 @@ output:
 editor_options:
   markdown:
     wrap: 72
-bibliography: lit/references.bib
+#bibliography: lit/references.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -124,7 +124,8 @@ set.seed(20220712)
 train_test_split <- initial_split(d, prop = .80)
 data_train <- training(train_test_split)
 
-<replace this line with your kfcv code!>
+#<replace this line with your kfcv code!>
+kfcv <- vfold_cv(data_train, v = 20) 
 ```
 
 ## Step 2: Engineer features
