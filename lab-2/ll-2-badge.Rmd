@@ -31,21 +31,23 @@ Part A:
 
 3.  How might the model be improved? Share any ideas you have at this time below:
 
--   I am not sure whether the accuracy could be improved further.
+-   I am not sure. Maybe it could be improved using different model.
 
 Part B: Again, use the institutional library (e.g. [NCSU Library](https://www.lib.ncsu.edu/#articles)), [Google Scholar](https://scholar.google.com/) or search engine to locate a research article, presentation, or resource that applies machine learning to an educational context aligned with your research interests. More specifically, **locate a machine learning study that involve making predictions -- and, ideally, one that involved in some way engineering features from data**.
 
 1.  Provide an APA citation for your selected study.
 
-    -   
+    -   Hussain, M., Zhu, W., Zhang, W., Abidi, S. M. R., & Ali, S. (2019). Using machine learning to predict student difficulties from learning session data. *Artificial Intelligence Review*, *52*(1), 381-407.
 
 2.  What research questions were the authors of this study trying to address and why did they consider these questions important?
 
-    -   
+    • To identify the most appropriate machine learning algorithms for predicting the difficulty an individual student would have in the next session of a digital design course based on prior session activities and the current session.
+
+    • To investigate which machine learning algorithms used in the current study are appropriate for predicting student difficulty in the next session of digital design course while using the fewest features.
 
 3.  What were the results of these analyses?
 
-    -   
+    -   The results show that ANNs and SVMs achieve higher accuracy than do other algorithms. ANNs and SVMs can easily be integrated into the TEL system; thus, instructors are expected to report improved student\'s performance during the subsequent session.
 
 ### Part II: Data Product
 
@@ -60,6 +62,17 @@ library(tidymodels)
 
 d <- read_csv("data/online-sci-data-joined.csv")
 
+data_with_final_grade <- read_csv("data/data-to-model-no-gradebook.csv")
+
+data_with_final_grade <- data_with_final_grade %>% 
+    select(student_id, course_id, final_grade)
+
+d <- left_join(d, data_with_final_grade, by= c("student_id", "course_id"))
+
+
+
+d <- d %>% distinct(student_id, course_id, .keep_all = TRUE)
+
 set.seed(20220712)
 
 train_test_split <- initial_split(d, prop = .80)
@@ -73,22 +86,25 @@ kfcv <- vfold_cv(data_train, v = 20) # this differentiates this from what we did
 Here's where you can add a new feature engineering step. For the sake of this badge, choose from among those options here: <https://recipes.tidymodels.org/reference/index.html>. You can see more - if helpful - here: <https://www.tmwr.org/recipes.html>
 
 ```{r}
-my_rec <- recipe(passing_grade ~ ., data = d) %>% 
+my_rec <- recipe(final_grade ~ 
+                     int + uv + tv + student_id + course_id + sum_discussion_posts + sum_n_words, data = data_train) %>% 
+    update_role(student_id,course_id,new_role = "ID variable") %>%
     step_normalize(all_numeric_predictors()) %>% # standardizes numeric variables
     step_nzv(all_predictors()) %>% # remove predictors with a "near-zero variance"
-    step_novel(all_nominal_predictors()) %>% # add a musing label for factors
-    step_naomit(all_predictors()) %>% # remove all missing values mz
+    step_novel(all_nominal_predictors()) %>% # add a musing label for factors 
     step_dummy(all_nominal_predictors()) %>%  # dummy code all factor variables
     step_impute_knn(all_predictors()) # impute missing data for all predictor variables
+    
+    
 ```
 
 Run the remaining steps.
 
 ```{r}
 my_mod <-
-    logistic_reg() %>% 
-    set_engine("glm") %>%
-    set_mode("classification")
+    linear_reg() %>% 
+    set_engine("lm") %>%
+    set_mode("regression")
 
 my_wf <-
     workflow() %>%
@@ -100,7 +116,10 @@ fitted_model <- fit_resamples(my_wf, resamples = kfcv,
 
 fitted_model %>% 
     unnest(.metrics) %>% 
-    filter(.metric == "accuracy") # we also get another metric, the ROC; we focus just on accuracy for now
+    filter(.metric == "rmse") # we also get another metric, the ROC; we focus just on accuracy for now
+fitted_model %>% 
+    collect_metrics()
+
 ```
 
 Did that feature engineering make any difference compared to the mean predictive accuracy you found in the case study? Add a few notes below:
