@@ -316,7 +316,7 @@ recipe.
 -   `step_impute_knn(all_predictors(), all_outcomes())`
 
 ```{r,}
-my_rec <- recipe(final_grade ~ ., data = d) %>% 
+my_rec <- recipe(final_grade ~ ., data = data_train) %>% 
     step_normalize(all_numeric_predictors()) %>% # standardizes numeric variables
     step_nzv(all_predictors()) %>% # remove predictors with a "near-zero variance"
     step_novel(all_nominal_predictors()) %>% # add a musing label for factors
