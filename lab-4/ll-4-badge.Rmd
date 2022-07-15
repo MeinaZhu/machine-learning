@@ -28,7 +28,7 @@ Part A:
 
 2.  How might a qualitative analysis follow from the Latent Profile Analysis we carried out? What steps could you take in a qualitative investigation? Feel free to think broadly and creatively here!
 
--   I could used the different categorise discovered by the LPA to do further qualitative analysis.
+-   I could used the different categorise discovered by the LPA to do further qualitative analysis. Then I could validate the codes.
 
 Part B: Once again, use the institutional library (e.g. [NCSU Library](https://www.lib.ncsu.edu/#articles)), [Google Scholar](https://scholar.google.com/) or search engine to locate a research article, presentation, or resource that applies unsupervised machine learning to an educational context aligned with your research interests. More specifically, **locate a machine learning study that involve using Latent Profile Analysis or a similar method**. You may find the published papers that have used LPA helpful in this respect; those can be browsed [here](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C34&q=tidylpa&btnG=). 
 

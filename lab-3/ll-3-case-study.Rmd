@@ -16,7 +16,7 @@ editor_options:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE)
 ```
 
 Even after feature engineering, machine learning approaches can often
@@ -104,6 +104,11 @@ conversations. Given our focus on ML in this topic area, we do *not
 include features relating to the text data*, but think this could be a
 great direction for future work (and research) in this area.
 
+d \<- d %\>%
+
+mutate(code = as.factor(code)) \# this is needed for the classification
+mode
+
 ```{r}
 d <- read_csv("data/ngsschat-processed-data.csv")
 
@@ -131,7 +136,7 @@ train_test_split <- initial_split(d, prop = .80)
 data_train <- training(train_test_split)
 
 #<replace this line with your kfcv code!>
-kfcv <- vfold_cv(data_train, v = 20) 
+kfcv <- vfold_cv(data_train, v = 8) 
 ```
 
 ## Step 2: Engineer features
@@ -149,7 +154,7 @@ LL2.
 Add a feature engineering step below. Consider those described
 [here](https://recipes.tidymodels.org/reference/index.html).
 
-```{r panel-chunk-2, echo = TRUE, eval = FALSE}
+```{r panel-chunk-2, echo = TRUE, eval = TRUE}
 my_rec <- recipe(code ~ ., data = data_train) %>% 
     step_normalize(all_numeric_predictors()) %>%
     step_nzv(all_predictors()) %>%
@@ -174,11 +179,12 @@ here.
     predicting categories (transactional and substantive conversations
     taking place through #NGSSchat)
 
-```{r panel-chunk-3, echo = TRUE, eval = FALSE}
+```{r panel-chunk-3, echo = TRUE, eval = TRUE}
 # specify model
 my_mod <-
     rand_forest(mtry = tune(),
-                min_n = tune()) %>%
+                min_n = tune(),
+                trees = tune ()) %>%
     set_engine("ranger", importance = "impurity") %>%
     set_mode("classification")
 
@@ -205,9 +211,10 @@ These next two functions are used to get a sense of what the values for
 `mtry` and `min_n` should be based on the dimensions or range of the
 values of the variables in the data.
 
-```{r panel-chunk-4, echo = TRUE, eval = FALSE}
+```{r panel-chunk-4, echo = TRUE, eval = TRUE}
 finalize(mtry(), data_train)
 finalize(min_n(), data_train)
+finalize(trees(), data_train)
 ```
 
 #### [Your Turn]{style="color: green;"} ⤵
@@ -220,6 +227,7 @@ simply a combination of values of the hyperparameters.
 ```{r}
 tree_grid <- grid_max_entropy(mtry(range(1, 5)),
                               min_n(range(2, 40)),
+                              trees(range(1,600)),
                               size = 10)
 
 tree_grid
@@ -283,7 +291,7 @@ final_fit
 
 Last, we can interpret the accuracy of our tuned model.
 
-```{r panel-chunk-5, echo = TRUE, eval = FALSE}
+```{r panel-chunk-5, echo = TRUE, eval = TRUE}
 # fit stats
 final_fit %>%
     collect_metrics()

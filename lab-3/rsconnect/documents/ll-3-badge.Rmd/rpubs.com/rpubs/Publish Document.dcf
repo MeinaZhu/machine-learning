@@ -1,0 +1,11 @@
+name: Publish Document
+title:
+username:
+account: rpubs
+server: rpubs.com
+hostUrl: rpubs.com
+appId: https://api.rpubs.com/api/v1/document/924296/6a5fe334bb1d4ad4a1a3cfe83e2ee443
+bundleId: https://api.rpubs.com/api/v1/document/924296/6a5fe334bb1d4ad4a1a3cfe83e2ee443
+url: http://rpubs.com/MeinaZhu/924296
+when: 1657902345.9825
+lastSyncTime: 1657902345.98251
