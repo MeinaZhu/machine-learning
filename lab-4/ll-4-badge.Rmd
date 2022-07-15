@@ -1,6 +1,6 @@
 ---
 title: 'Machine Learning - Learning Lab 4 Badge'
-author: ""
+author: "Meina Zhu"
 date: "`r format(Sys.Date(),'%B %e, %Y')`"
 output: html_document
 ---
@@ -24,25 +24,25 @@ Part A:
 
 1.  How interpretable or useful is the solution we estimated in the case study? 
 
--   
+-   It was useful to explore the data and see different categories of the data. It could be used for further in-depth analysis.
 
 2.  How might a qualitative analysis follow from the Latent Profile Analysis we carried out? What steps could you take in a qualitative investigation? Feel free to think broadly and creatively here!
 
--   
+-   I could used the different categorise discovered by the LPA to do further qualitative analysis.
 
 Part B: Once again, use the institutional library (e.g. [NCSU Library](https://www.lib.ncsu.edu/#articles)), [Google Scholar](https://scholar.google.com/) or search engine to locate a research article, presentation, or resource that applies unsupervised machine learning to an educational context aligned with your research interests. More specifically, **locate a machine learning study that involve using Latent Profile Analysis or a similar method**. You may find the published papers that have used LPA helpful in this respect; those can be browsed [here](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C34&q=tidylpa&btnG=). 
 
 1.  Provide an APA citation for your selected study.
 
-    -   
+    -   Damşa, C., Langford, M., Uehara, D., & Scherer, R. (2021). Teachers’ agency and online education in times of crisis. Computers in Human Behavior, 121, 106793.
 
 2.  What research questions were the authors of this study trying to address and why did they consider these questions important?
 
-    -   
+    -   What are the the nature and degree of teachers' agency?
 
 3.  What were the results of these analyses?
 
-    -   
+    -   higher education must systematically cultivate digital competence, to promote, build, and sustain transformative agency of teachers.
 
 ### Part II: Data Product
 
@@ -84,6 +84,9 @@ plot_profiles(our_solution, add_line = TRUE) +
 ```
 
 Please interpret the results of your analysis below. What did you find? How interpretable and useful are the profiles? And, what next steps - including those involving qualitative analysis - might you take to deepen this analysis?
+
+We found that the students in group 1 are gaming the system, but are active in actions in class.
+Group 2 are frustrated. Group 3 are bored and off-task. Group 4 are knowledgeable and correct.
 
 -   
 

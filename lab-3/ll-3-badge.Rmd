@@ -1,6 +1,6 @@
 ---
 title: 'Machine Learning - Learning Lab 4 Badge'
-author: ""
+author: "Meina Zhu"
 date: "`r format(Sys.Date(),'%B %e, %Y')`"
 output: html_document
 ---
@@ -33,15 +33,15 @@ Part B: Once again, use the institutional library (e.g. [NCSU Library](https://w
 
 1.  Provide an APA citation for your selected study.
 
-    -   
+    -   Liang, J., Li, C., & Zheng, L. (2016, August). Machine learning application in MOOCs: Dropout prediction. In *2016 11th International Conference on Computer Science & Education (ICCSE)* (pp. 52-57). IEEE.
 
 2.  What research questions were the authors of this study trying to address and why did they consider these questions important?
 
-    -   
+    -   How to predict students' dropout in MOOCs
 
 3.  What were the results of these analyses?
 
-    -   
+    -   The authors used supervised classification approach in the machine learning field, and achieved 89% accuracy in dropout prediction task with gradient boosting decision tree model.
 
 ### Part II: Data Product
 
@@ -61,7 +61,9 @@ library(tidymodels)
 library(here)
 library(vip) # a new package we're adding for variable importance measures
 
-d <- read_csv(here("data", "ngsschat-processed-data.csv"))
+#d <- read_csv(here("data", "ngsschat-processed-data.csv"))
+
+d <- read_csv("data/ngsschat-processed-data.csv")
 ```
 
 **Split data**
@@ -105,7 +107,7 @@ my_wf <-
 finalize(mtry(), data_train)
 finalize(min_n(), data_train)
 
-tree_grid <- grid_max_entropy(mtry(range(1, 18)),
+tree_grid <- grid_max_entropy(mtry(range(1, 5)),
                               min_n(range(2, 40)),
                               size = 10)
 
@@ -114,7 +116,8 @@ fitted_model <- my_wf %>%
     tune_grid(
         resamples = kfcv,
         grid = tree_grid,
-        metrics = metric_set((roc_auc, accuracy, kap, sensitivity, specificity, precision))
+        metrics = metric_set(roc_auc, accuracy, kap, sensitivity, specificity, precision))
+    
 ```
 
 **Fit model (part 2)**

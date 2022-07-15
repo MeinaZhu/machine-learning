@@ -1,6 +1,6 @@
 ---
 title: 'Learning Lab 4 Case Study'
-author: ""
+author: "Meina Zhu"
 date: "`r format(Sys.Date(),'%B %e, %Y')`"
 output:
   html_document:
@@ -170,10 +170,10 @@ plot_profiles(our_solution, add_line = TRUE) +
 Typically, we'd name these solutions. Let's get started with one, the
 second:
 
--   Profile 1:
+-   Profile 1: gaming and actions
 -   Profile 2: Bored and off-task
--   Profile 3:
--   Profile 4:
+-   Profile 3: Bored and off-task
+-   Profile 4: knowledge and correct
 
 You may wish to review the paper to interpret the other variables:
 <https://educationaldatamining.org/EDM2014/uploads/procs2014/short%20papers/276_EDM-2014-Short.pdf>

@@ -47,7 +47,7 @@ Part B: Again, use the institutional library (e.g. [NCSU Library](https://www.li
 
 3.  What were the results of these analyses?
 
-    -   The results show that ANNs and SVMs achieve higher accuracy than do other algorithms. ANNs and SVMs can easily be integrated into the TEL system; thus, instructors are expected to report improved student\'s performance during the subsequent session.
+    -   The results show that ANNs and SVMs achieve higher accuracy than do other algorithms. ANNs and SVMs can easily be integrated into the TEL system; thus, instructors are expected to report improved student's performance during the subsequent session.
 
 ### Part II: Data Product
 

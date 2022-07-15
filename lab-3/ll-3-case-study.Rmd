@@ -61,8 +61,14 @@ Please add to the chunk below code to load three packages we've used in
 both LL1 and LL2 - tidyverse, tidymodels, and here.
 
 ```{r}
+
+library(tidyverse)
+library(tidymodels)
+
 library(vip) # a new package we're adding for variable importance measures
 library(ranger) # this is needed for the random forest algorithm
+library(here)
+
 ```
 
 Next, we'll load the processed data.
@@ -146,7 +152,10 @@ Add a feature engineering step below. Consider those described
 ```{r panel-chunk-2, echo = TRUE, eval = FALSE}
 my_rec <- recipe(code ~ ., data = data_train) %>% 
     step_normalize(all_numeric_predictors()) %>%
-    step_nzv(all_predictors())
+    step_nzv(all_predictors()) %>%
+    step_dummy(all_nominal_predictors()) %>%  # dummy code all factor variables
+    step_impute_knn(all_predictors()) # impute missing data for all predictor variables
+  
 ```
 
 ## Step 3: Specify recipe, model, and workflow
@@ -209,7 +218,7 @@ replace the `xx` values below with the *maximum* value provided by the
 simply a combination of values of the hyperparameters.
 
 ```{r}
-tree_grid <- grid_max_entropy(mtry(range(1, 8)),
+tree_grid <- grid_max_entropy(mtry(range(1, 5)),
                               min_n(range(2, 40)),
                               size = 10)
 
