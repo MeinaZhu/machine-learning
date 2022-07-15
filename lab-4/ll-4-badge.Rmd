@@ -42,7 +42,7 @@ Part B: Once again, use the institutional library (e.g. [NCSU Library](https://w
 
 3.  What were the results of these analyses?
 
-    -   higher education must systematically cultivate digital competence, to promote, build, and sustain transformative agency of teachers.
+    -   Higher education should systematically cultivate digital competence, to promote, build, and sustain transformative agency of teachers.
 
 ### Part II: Data Product
 
@@ -86,7 +86,7 @@ plot_profiles(our_solution, add_line = TRUE) +
 Please interpret the results of your analysis below. What did you find? How interpretable and useful are the profiles? And, what next steps - including those involving qualitative analysis - might you take to deepen this analysis?
 
 We found that the students in group 1 are gaming the system, but are active in actions in class.
-Group 2 are frustrated. Group 3 are bored and off-task. Group 4 are knowledgeable and correct.
+Group 2 students are more frustrated. Group 3 students are bored and off-task. Group 4 students are knowledgeable and correct.
 
 -   
 
